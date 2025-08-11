@@ -22,4 +22,5 @@ public class Main {
         MinhaClasseDeTeste obj = new MinhaClasseDeTeste();
         executarTestes(obj);
     }
+    
 }
