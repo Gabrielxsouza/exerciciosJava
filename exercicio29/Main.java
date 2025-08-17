@@ -4,10 +4,14 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
+    public class exercicio29 {
     public static void main(String[] args) {
-        LinkedList<String> historico = new LinkedList<>();
+
+        System.out.println("\t\tExercicio 29");
 
         Scanner leitor = new Scanner(System.in);
+
+        LinkedList<String> historico = new LinkedList<>();
 
         historico.add("Pagina 1");
         historico.add("Pagina 2");
@@ -15,46 +19,39 @@ public class Main {
         historico.add("Pagina 4");
         historico.add("Pagina 5");
 
-        while(true) {
-            System.out.println("Escolha uma opcao: ");
-            System.out.println("1 - Visitar uma nova pagina");
-            System.out.println("2 - Voltar");
-            System.out.println("3 - Avancar");
-            System.out.println("4 - Sair do programa");
-
+        while (true) {
+            System.out.println("\nEscolha uma opção: ");
+            System.out.println("1- Escolher pagina");
+            System.out.println("2- Voltar pagina");
+            System.out.println("3- Proxima pagina");
+            System.out.println("4- Sair");
             int opcao = leitor.nextInt();
 
-            switch(opcao) {
+            switch (opcao) {
                 case 1:
-                    System.out.println("Digite o nome da pagina: ");
+                    System.out.println("Digite a pagina: ");
                     String pagina = leitor.next();
-                    visitar(pagina);
+                    historico.add(pagina);
                     break;
                 case 2:
-                    if (historico.size() > 1) {
-                        historico.removeLast();
-                    }
+                    System.out.println("Pagina anterior: " + historico.pollLast());
                     break;
                 case 3:
-                    if (historico.size() > 1) {
-                        historico.removeFirst();
-                    }
+                    System.out.println("Pagina posterior: " + historico.pollFirst());
                     break;
                 case 4:
                     leitor.close();
-                    System.exit(0);
-                    break;
+                    return;
                 default:
-                    System.out.println("Opcao invalida!");
-                    break;
+                    leitor.close();
+                    System.out.println("Opção inválida");
             }
         }
         
-    }
 
-    public static void visitar(String pagina) {
-        LinkedList<String> copia = new LinkedList<>(historico);
-        copia.add(pagina);
-        historico = copia;
     }
+    
+    }
+    
 }
+
